@@ -186,4 +186,18 @@ public class MusicOrganizer
             }
         }
     }
+    
+    public void setNumeroAlbumes(int index, int Albumes) {
+        if(indexValid(index)) {
+            Track track = tracks.get(index);
+            track.setNumeroDeAlbumes(Albumes);
+        }
+    }
+    
+    public void getNumeroAlbumes(int index) {
+        if(indexValid(index)) {
+            Track track = tracks.get(index);
+            track.getNumeroDeAlbumes();
+        }
+    }
 }

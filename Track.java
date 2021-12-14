@@ -15,6 +15,8 @@ public class Track
     private String filename;
     // Contador de reproducciones
     private int playCount;
+    // Cantidad album 
+    private int albumes;
     
     /**
      * Constructor for objects of class Track.
@@ -26,6 +28,7 @@ public class Track
     {
         setDetails(artist, title, filename);
         playCount = 0;
+        albumes = 0;
     }
     
     /**
@@ -38,6 +41,7 @@ public class Track
     {
         setDetails("unknown", "unknown", filename);
         playCount = 0;
+        albumes = 0;
     }
     
     /**
@@ -73,7 +77,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ") reproducciones: " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ") Cantidad de albumes: " + albumes + ", reproducciones: " + playCount;
     }
     
     /**
@@ -87,6 +91,7 @@ public class Track
         this.artist = artist;
         this.title = title;
         this.filename = filename;
+        this.albumes = albumes;
     }
     
     /**
@@ -101,5 +106,13 @@ public class Track
      */
     public void incrementPlayCount() {
         playCount++;
+    }
+    
+    public void setNumeroDeAlbumes(int NumeroAlbumes) {
+        albumes = NumeroAlbumes;
+    }
+    
+    public void getNumeroDeAlbumes() {
+        System.out.println("El numero de albumes es de: " + albumes);
     }
 }
