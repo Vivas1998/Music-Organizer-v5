@@ -91,7 +91,6 @@ public class Track
         this.artist = artist;
         this.title = title;
         this.filename = filename;
-        this.albumes = albumes;
     }
     
     /**
