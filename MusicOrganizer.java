@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class to hold details of audio tracks.
@@ -192,6 +193,9 @@ public class MusicOrganizer
         }
     }
     
+    /**
+     * Determina el numero de albumes de la cancion
+     */
     public void setNumeroAlbumes(int index, int Albumes) {
         if(indexValid(index)) {
             Track track = tracks.get(index);
@@ -199,6 +203,9 @@ public class MusicOrganizer
         }
     }
     
+    /**
+     * Devuelve el numero de albumes de la cancion
+     */
     public void getNumeroAlbumes(int index) {
         if(indexValid(index)) {
             Track track = tracks.get(index);
@@ -206,12 +213,54 @@ public class MusicOrganizer
         }
     }
     
+    /**
+     * Comprueba si hay alguna cancion reproduciendose
+     */
     public void isPlaying() {
         if(reproduciendo == true) {
             System.out.println("Se esta reproduciendo una canción");
         }
         else {
             System.out.println("No se esta reproduciendo ninguna canción");
+        }
+    }
+    
+    /**
+     * Lista todos los archivos track con Iterator
+     */
+    public void listAllTracksWithIterator() {
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext()) {
+            Track element = it.next();
+            System.out.println(element.getDetails());
+        }
+    }
+    
+    /**
+     * Elimina un track
+     */
+    public void removeByArtist(String artistaRemover){
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext()) {
+            Track elemento = it.next();
+            String artista = elemento.getArtist();
+            if (artista.equals(artistaRemover)) {
+                it.remove();
+            }
+        }
+    }
+    
+    /**
+     * Elimina un track
+     */
+    public void removeByTitle(String tituloRemover) {
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext()) {
+            Track elemento = it.next();
+            String titulo = elemento.getTitle();
+            if (titulo.contains(tituloRemover)) {
+                it.remove();
+            }
         }
     }
 }
